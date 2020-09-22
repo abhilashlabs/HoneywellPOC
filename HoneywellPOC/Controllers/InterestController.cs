@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using HoneywellPOC.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
@@ -12,10 +8,10 @@ namespace HoneywellPOC.Controllers
     [ApiController]
     public class InterestController : ControllerBase
     {
-        public SimpleInterest Si { get; }
-        public InterestController(SimpleInterest si)
+        private readonly SimpleInterest _simpleInterest;
+        public InterestController(SimpleInterest simpleInterest)
         {
-            Si = si;
+            _simpleInterest = simpleInterest;
         }
 
         [HttpPost("simpleInterest")]
@@ -26,10 +22,14 @@ namespace HoneywellPOC.Controllers
 
             if (amount == 0 || year == 0 || rate == 0)
                 return NoContent();
+
+            if (amount < 0 || year < 0 || rate < 0)
+                return BadRequest();
+
             var result = new ApiResponse
             {
                 status = "success",
-                result = Si.calculateInterest(amount, rate, year, den)
+                result = _simpleInterest.CalculateInterest(amount, rate, year, den)
             };
             return Ok(result);
         }

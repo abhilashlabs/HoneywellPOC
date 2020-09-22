@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HoneywellPOC.Interfaces;
 
 namespace HoneywellPOC.Models
 {
-    public class Maths
+    public class Maths: IMaths
     {
         public double Multiply(double a, double b)
         {

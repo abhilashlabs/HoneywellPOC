@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HoneywellPOC.Data;
-using HoneywellPOC.Models;
-using Microsoft.AspNetCore.Http;
+﻿using HoneywellPOC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
@@ -13,10 +7,10 @@ namespace HoneywellPOC.Controllers
     [ApiController]
     public class OperationsController : ControllerBase
     {
-        public Maths Maths { get; }
+        private readonly Maths _maths;
         public OperationsController(Maths maths)
         {
-            Maths = maths;
+            _maths = maths;
         }
 
 
@@ -30,7 +24,7 @@ namespace HoneywellPOC.Controllers
             var result = new ApiResponse
             {
                 status = "success",
-                result = Maths.Add(a, b)
+                result = _maths.Add(a, b)
             };
             return Ok(result);
         }
@@ -44,7 +38,7 @@ namespace HoneywellPOC.Controllers
             var result = new ApiResponse
             {
                 status = "success",
-                result = Maths.Substract(a, b)
+                result = _maths.Substract(a, b)
             };
             
             return Ok(result);
@@ -59,7 +53,7 @@ namespace HoneywellPOC.Controllers
             var result = new ApiResponse
             {
                 status = "success",
-                result = Maths.Multiply(a, b)
+                result = _maths.Multiply(a, b)
             };
             return Ok(result);
         }
@@ -73,7 +67,7 @@ namespace HoneywellPOC.Controllers
             var result = new ApiResponse
             {
                 status = "success",
-                result = Maths.Divide(a, b)
+                result = _maths.Divide(a, b)
             };
             return Ok(result);
         }

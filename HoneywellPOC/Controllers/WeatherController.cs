@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
 {
@@ -11,19 +6,31 @@ namespace HoneywellPOC.Controllers
     [ApiController]
     public class WeatherController : ControllerBase
     {
-        public WeatherForecast Weather { get; }
+        /// <summary>
+        /// This is for dependency injection
+        /// </summary>
+        private readonly WeatherForecast _weather;
+        /// <summary>
+        /// Creation of constructor
+        /// </summary>
+        /// <param name="weather"></param>
         public WeatherController(WeatherForecast weather)
         {
-            Weather = weather;
+            _weather = weather;
         }
 
+        /// <summary>
+        /// This is a http post method to get temperature for a city 
+        /// </summary>
+        /// <param name="city"></param>
+        /// <returns></returns>
         [HttpPost("temperatureByCity")]
         public IActionResult TemperatureByCity(string city)
         {
-            if (city == null)
+            if (string.IsNullOrEmpty(city))
                 return NoContent();
 
-            var result = Weather.getTemperatureByCity(city);
+            var result = _weather.getTemperatureByCity(city);
             return Ok(result);
 
         }
