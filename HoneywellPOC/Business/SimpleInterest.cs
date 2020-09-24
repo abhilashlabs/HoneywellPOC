@@ -6,10 +6,10 @@ using HoneywellPOC.Models;
 
 namespace HoneywellPOC
 {
-    public class SimpleInterest: ISimpleInterest
+    public class SimpleInterest : ISimpleInterest
     {
 
-        double tot_amt, _interest;       
+        double tot_amt, _interest;
         public virtual dynamic CalculateInterest(double _princamt, double _rate, double _year, int denominator)
         {
             Maths m = new Maths();
@@ -22,7 +22,13 @@ namespace HoneywellPOC
             try
             {
                 _interest = m.Divide(m.Multiply(_princamt, m.Multiply(_rate, _year)), denominator);
-                tot_amt = m.Add(_princamt, _interest);
+
+                if (denominator == 0)
+                {
+                    tot_amt = 0;
+                }
+                else
+                    tot_amt = m.Add(_princamt, _interest);
             }
             catch
             {

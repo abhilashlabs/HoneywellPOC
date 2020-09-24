@@ -32,6 +32,8 @@ namespace HoneywellPOC.Controllers
                 result = _simpleInterest.CalculateInterest(amount, rate, year, den)
             };
             return Ok(result);
+
+            
         }
     }
 }

@@ -94,6 +94,17 @@ namespace HoneywellPOCTestCases
             A.CallTo(() => m.Divide(a, b)).Returns(10);
             Assert.AreEqual(10, m.Divide(a, b));
         }
+        [Test]
+        public void city_novalue_returns_error()
+        {
+
+        }
+
+        [Test]
+        public void city_withValue_returns_dynamic_temperature()
+        {
+
+        }
         
     }
 }
