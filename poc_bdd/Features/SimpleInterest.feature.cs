@@ -81,16 +81,16 @@ namespace poc_bdd.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Gives interest amount when given prinicpal amount, rate and year")]
+        [Xunit.SkippableFactAttribute(DisplayName="Calculates interest amount when prinicpal amount, rate and year are provided")]
         [Xunit.TraitAttribute("FeatureTitle", "SimpleInterest")]
-        [Xunit.TraitAttribute("Description", "Gives interest amount when given prinicpal amount, rate and year")]
+        [Xunit.TraitAttribute("Description", "Calculates interest amount when prinicpal amount, rate and year are provided")]
         [Xunit.TraitAttribute("Category", "mytag")]
-        public virtual void GivesInterestAmountWhenGivenPrinicpalAmountRateAndYear()
+        public virtual void CalculatesInterestAmountWhenPrinicpalAmountRateAndYearAreProvided()
         {
             string[] tagsOfScenario = new string[] {
                     "mytag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Gives interest amount when given prinicpal amount, rate and year", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculates interest amount when prinicpal amount, rate and year are provided", null, tagsOfScenario, argumentsOfScenario);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -130,17 +130,17 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Gives interest amount when given prinicpal amount, rate and year with denominator" +
-            " as 0")]
+        [Xunit.SkippableFactAttribute(DisplayName="Calculates interest amount when prinicpal amount, rate and year are provided with" +
+            " denominator as 0")]
         [Xunit.TraitAttribute("FeatureTitle", "SimpleInterest")]
-        [Xunit.TraitAttribute("Description", "Gives interest amount when given prinicpal amount, rate and year with denominator" +
-            " as 0")]
-        public virtual void GivesInterestAmountWhenGivenPrinicpalAmountRateAndYearWithDenominatorAs0()
+        [Xunit.TraitAttribute("Description", "Calculates interest amount when prinicpal amount, rate and year are provided with" +
+            " denominator as 0")]
+        public virtual void CalculatesInterestAmountWhenPrinicpalAmountRateAndYearAreProvidedWithDenominatorAs0()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Gives interest amount when given prinicpal amount, rate and year with denominator" +
-                    " as 0", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculates interest amount when prinicpal amount, rate and year are provided with" +
+                    " denominator as 0", null, tagsOfScenario, argumentsOfScenario);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
