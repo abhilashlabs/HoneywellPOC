@@ -81,6 +81,7 @@ namespace poc_bdd.Steps
         [Then(@"the simple interest should be ""(.*)""")]
         public void ThenTheSimpleInterestShouldBe(string p0)
         {
+            // this assert is for checking whether the formula is returning error or not
             Assert.Equal(p0, _result);
         }
 
