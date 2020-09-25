@@ -84,11 +84,11 @@ namespace poc_bdd.Features
         [Xunit.SkippableFactAttribute(DisplayName="Calculates interest amount when prinicpal amount, rate and year are provided")]
         [Xunit.TraitAttribute("FeatureTitle", "SimpleInterest")]
         [Xunit.TraitAttribute("Description", "Calculates interest amount when prinicpal amount, rate and year are provided")]
-        [Xunit.TraitAttribute("Category", "mytag")]
+        [Xunit.TraitAttribute("Category", "allcorrectvalues")]
         public virtual void CalculatesInterestAmountWhenPrinicpalAmountRateAndYearAreProvided()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "allcorrectvalues"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculates interest amount when prinicpal amount, rate and year are provided", null, tagsOfScenario, argumentsOfScenario);
 #line 7
@@ -124,7 +124,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("the calculation part is happened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.Then("the simpleinterest should be 1040", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the simpleinterest should be 40", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -135,13 +135,15 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.TraitAttribute("FeatureTitle", "SimpleInterest")]
         [Xunit.TraitAttribute("Description", "Calculates interest amount when prinicpal amount, rate and year are provided with" +
             " denominator as 0")]
+        [Xunit.TraitAttribute("Category", "withdenominatoras0")]
         public virtual void CalculatesInterestAmountWhenPrinicpalAmountRateAndYearAreProvidedWithDenominatorAs0()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "withdenominatoras0"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculates interest amount when prinicpal amount, rate and year are provided with" +
                     " denominator as 0", null, tagsOfScenario, argumentsOfScenario);
-#line 14
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -161,20 +163,72 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
+#line 16
  testRunner.Given("the principal amount is 1000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
+#line 17
  testRunner.And("the interest rate is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 17
+#line 18
  testRunner.And("the tenure is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 19
  testRunner.When("the calculation part is happened with denominator as 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 20
  testRunner.Then("the simpleinterest should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Calculates interest amount when prinicpal amount, rate and year are provided but " +
+            "rate as -2")]
+        [Xunit.TraitAttribute("FeatureTitle", "SimpleInterest")]
+        [Xunit.TraitAttribute("Description", "Calculates interest amount when prinicpal amount, rate and year are provided but " +
+            "rate as -2")]
+        [Xunit.TraitAttribute("Category", "withwrongvalues")]
+        public virtual void CalculatesInterestAmountWhenPrinicpalAmountRateAndYearAreProvidedButRateAs_2()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "withwrongvalues"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculates interest amount when prinicpal amount, rate and year are provided but " +
+                    "rate as -2", null, tagsOfScenario, argumentsOfScenario);
+#line 23
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 24
+ testRunner.Given("the principal amount is 1000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 25
+ testRunner.And("the interest rate is -2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+ testRunner.And("the tenure is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 27
+ testRunner.When("the calculation part is happened with rate as -2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+ testRunner.Then("the simple interest should be \"error\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

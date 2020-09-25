@@ -8,11 +8,12 @@ namespace poc_bdd.Steps
     public sealed class CalculatorStepDefinitions
     {
 
+        private Maths _maths;
         public CalculatorStepDefinitions(Maths maths)
         {
             _maths = maths;
         }
-        private Maths _maths;
+
         private int _num1;
         private int _num2;
         private double _result;
@@ -34,7 +35,7 @@ namespace poc_bdd.Steps
         [When("the two numbers are added")]
         public void WhenTheTwoNumbersAreAdded()
         {
-            _result = _maths.Add(_num1, _num2);
+            _result = _num1 + _num2;
         }
 
         [When(@"the two numbers are substracted")]
@@ -66,5 +67,7 @@ namespace poc_bdd.Steps
         {            
             Assert.Equal(result, _result);
         }
+
+        
     }
 }

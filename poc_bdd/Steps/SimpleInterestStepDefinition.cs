@@ -18,7 +18,7 @@ namespace poc_bdd.Steps
         private int _principalAmount;
         private int _rate;
         private int _year;
-        private double _result;
+        private dynamic _result;
 
         public SimpleInterestStepDefinition(SimpleInterest simpleInterest)
         {
@@ -46,14 +46,28 @@ namespace poc_bdd.Steps
         [When(@"the calculation part is happened")]
         public void WhenTheCalculationPartIsHappened()
         {
+            // in developer perspective
             _result = _simpleInterest.CalculateInterest(_principalAmount, _rate, _year, 100);
+
+            // how a QA person will write
+            //_result = (_principalAmount * _rate * _year)/100;
+            //_result = 40;
         }
 
         [When(@"the calculation part is happened with denominator as (.*)")]
         public void WhenTheCalculationPartIsHappenedWithDenominatorAs(int p0)
-        {
+        {            
             _result = _simpleInterest.CalculateInterest(_principalAmount, _rate, _year, 0);
         }
+
+        [When(@"the calculation part is happened with rate as (.*)")]
+        public void WhenTheCalculationPartIsHappenedWithRateAs(int p0)
+        {
+            _result = _simpleInterest.CalculateInterest(_principalAmount, _rate, _year, 100);
+        }
+
+
+
 
 
         [Then(@"the simpleinterest should be (.*)")]
@@ -61,6 +75,15 @@ namespace poc_bdd.Steps
         {
             Assert.Equal(p0, _result);
         }
+
+      
+
+        [Then(@"the simple interest should be ""(.*)""")]
+        public void ThenTheSimpleInterestShouldBe(string p0)
+        {
+            Assert.Equal(p0, _result);
+        }
+
 
     }
 }

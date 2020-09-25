@@ -28,7 +28,8 @@ namespace HoneywellPOC
                     tot_amt = 0;
                 }
                 else
-                    tot_amt = m.Add(_princamt, _interest);
+                    tot_amt = _interest;
+                    //tot_amt = m.Add(_princamt, _interest);
             }
             catch
             {
