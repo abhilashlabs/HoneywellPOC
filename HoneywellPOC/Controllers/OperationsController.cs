@@ -30,7 +30,7 @@ namespace HoneywellPOC.Controllers
         }
 
         [HttpPost("substract")]
-        public IActionResult Substract(double a, double b)
+        public IActionResult Subtract(double a, double b)
         {
             if (a == 0 || b == 0)
                 return NoContent();
@@ -38,7 +38,7 @@ namespace HoneywellPOC.Controllers
             var result = new ApiResponse
             {
                 status = "success",
-                result = _maths.Substract(a, b)
+                result = _maths.Subtract(a, b)
             };
             
             return Ok(result);

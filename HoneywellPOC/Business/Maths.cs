@@ -18,7 +18,7 @@ namespace HoneywellPOC.Models
             return a + b;
         }
 
-        public virtual double Substract(double a, double b)
+        public virtual double Subtract(double a, double b)
         {
             return a - b;
         }
@@ -27,7 +27,7 @@ namespace HoneywellPOC.Models
         {
             if (b == 0)
             {
-                return 0;
+                throw new DivideByZeroException();
             }
             else
             {

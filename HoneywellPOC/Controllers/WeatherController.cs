@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
 {
@@ -29,6 +30,8 @@ namespace HoneywellPOC.Controllers
         {
             if (string.IsNullOrEmpty(city))
                 return NoContent();
+
+            //throw new NotImplementedException();
 
             var result = _weather.getTemperatureByCity(city);
             return Ok(result);

@@ -41,7 +41,7 @@ namespace poc_bdd.Steps
         [When(@"the two numbers are substracted")]
         public void WhenTheTwoNumbersAreSubstracted()
         {
-            _result = _maths.Substract(_num1, _num2);
+            _result = _maths.Subtract(_num1, _num2);
         }
 
         [When(@"the two numbers are multiplied")]

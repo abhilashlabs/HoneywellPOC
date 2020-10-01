@@ -68,8 +68,8 @@ namespace HoneywellPOCTestCases
         public void Calculate_Substraction_10()
         {
             double a = 20, b = 10;
-            A.CallTo(() => m.Substract(a, b)).Returns(10);
-            Assert.AreEqual(10, m.Substract(a, b));
+            A.CallTo(() => m.Subtract(a, b)).Returns(10);
+            Assert.AreEqual(10, m.Subtract(a, b));
         }
         [Test]
         public void Calculate_Multiplication_100()
