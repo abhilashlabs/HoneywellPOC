@@ -30,8 +30,3 @@ Scenario: Divide two numbers
 	When the two numbers are divided
 	Then the result should be 2
 
-Scenario: When the denominator is 0 for division operation
-	Given the first number is 50
-	And the second number is 0
-	When the denomiator is 0
-	Then the result should be 0
