@@ -1,0 +1,24 @@
+
+{
+    "region" : "ap-south-1",
+    "configuration" : "Debug",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : false,
+    "application"    : "HoneywellPOC",
+    "environment"    : "HoneywellPOC",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-ba4f89d5\";\"aws:ec2:vpc,Subnets\"=\"subnet-79643d11\"",
+    "proxy-server"         : "nginx",
+    "solution-stack"       : "64bit Windows Server Core 2019 v2.5.9 running IIS 10.0",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "honeywellpoc",
+    "instance-type"        : "t2.micro",
+    "key-pair"             : "augmento",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "profile"              : "honeywellpoc",
+    "health-check-url"     : "/",
+    "iis-website"          : "Default Web Site",
+    "app-path"             : "/"
+}

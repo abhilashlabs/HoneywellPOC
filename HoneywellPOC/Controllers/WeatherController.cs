@@ -5,7 +5,7 @@ namespace HoneywellPOC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WeatherController : ControllerBase
+    public partial class WeatherController : ControllerBase
     {
         /// <summary>
         /// This is for dependency injection
@@ -26,8 +26,9 @@ namespace HoneywellPOC.Controllers
         /// <param name="city"></param>
         /// <returns></returns>
         [HttpPost("temperatureByCity")]
-        public IActionResult TemperatureByCity(string city)
+        public IActionResult TemperatureByCity(WeatherParameters parameters)
         {
+            string city = parameters.city;
             if (string.IsNullOrEmpty(city))
                 return NoContent();
 

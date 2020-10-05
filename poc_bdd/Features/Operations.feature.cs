@@ -19,7 +19,7 @@ namespace poc_bdd.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class OperationsFeature : object, Xunit.IClassFixture<OperationsFeature.FixtureData>, System.IDisposable
+    public partial class CalculatorFeature : object, Xunit.IClassFixture<CalculatorFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace poc_bdd.Features
 #line 1 "Operations.feature"
 #line hidden
         
-        public OperationsFeature(OperationsFeature.FixtureData fixtureData, poc_bdd_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CalculatorFeature(CalculatorFeature.FixtureData fixtureData, poc_bdd_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace poc_bdd.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Operations", "In order to test my application\r\nAs a developer\r\nI want to validate different ope" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Calculator", "In order to test my application\r\nAs a developer\r\nI want to validate different ope" +
                     "rations of the application", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -82,7 +82,7 @@ namespace poc_bdd.Features
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Add two numbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "Operations")]
+        [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
         [Xunit.TraitAttribute("Description", "Add two numbers")]
         [Xunit.TraitAttribute("Category", "smoke")]
         public virtual void AddTwoNumbers()
@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Substract two numbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "Operations")]
+        [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
         [Xunit.TraitAttribute("Description", "Substract two numbers")]
         public virtual void SubstractTwoNumbers()
         {
@@ -172,7 +172,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Multiply two numbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "Operations")]
+        [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
         [Xunit.TraitAttribute("Description", "Multiply two numbers")]
         public virtual void MultiplyTwoNumbers()
         {
@@ -216,7 +216,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Divide two numbers")]
-        [Xunit.TraitAttribute("FeatureTitle", "Operations")]
+        [Xunit.TraitAttribute("FeatureTitle", "Calculator")]
         [Xunit.TraitAttribute("Description", "Divide two numbers")]
         public virtual void DivideTwoNumbers()
         {
@@ -266,12 +266,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                OperationsFeature.FeatureSetup();
+                CalculatorFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                OperationsFeature.FeatureTearDown();
+                CalculatorFeature.FeatureTearDown();
             }
         }
     }

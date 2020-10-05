@@ -27,7 +27,8 @@ namespace HoneywellPOC.Models
         {
             if (b == 0)
             {
-                throw new DivideByZeroException();
+                //throw new DivideByZeroException();
+                return 0;
             }
             else
             {

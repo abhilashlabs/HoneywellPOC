@@ -6,7 +6,7 @@ namespace HoneywellPOC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InterestController : ControllerBase
+    public partial class InterestController : ControllerBase
     {
         private readonly SimpleInterest _simpleInterest;
         public InterestController(SimpleInterest simpleInterest)
@@ -15,8 +15,13 @@ namespace HoneywellPOC.Controllers
         }
 
         [HttpPost("simpleInterest")]
-        public IActionResult SimpleInterest(double amount, double year, double rate, int den = 100)
+        public IActionResult SimpleInterest(SimpleInterestParameters parameters)
         {
+            double rate = parameters.rate;
+            double amount = parameters.principleAmount;
+            double year = parameters.year;
+            int den = parameters.denominator;
+
             if (Double.IsNaN(rate))
                 return BadRequest("Rate should not be empty");
 

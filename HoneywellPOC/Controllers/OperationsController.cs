@@ -1,11 +1,12 @@
-﻿using HoneywellPOC.Models;
+﻿using System;
+using HoneywellPOC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OperationsController : ControllerBase
+    public partial class OperationsController : ControllerBase
     {
         private readonly Maths _maths;
         public OperationsController(Maths maths)
@@ -13,11 +14,11 @@ namespace HoneywellPOC.Controllers
             _maths = maths;
         }
 
-
-
         [HttpPost("add")]
-        public IActionResult Add(double a, double b)
+        public IActionResult Add(OperationsParameters parameters)
         {
+            double a = parameters.a;
+            double b = parameters.b;
             if (a == 0 || b == 0)
                 return NoContent();
 
@@ -30,8 +31,10 @@ namespace HoneywellPOC.Controllers
         }
 
         [HttpPost("substract")]
-        public IActionResult Subtract(double a, double b)
+        public IActionResult Subtract(OperationsParameters parameters)
         {
+            double a = parameters.a;
+            double b = parameters.b;
             if (a == 0 || b == 0)
                 return NoContent();
 
@@ -45,8 +48,10 @@ namespace HoneywellPOC.Controllers
         }
 
         [HttpPost("multiply")]
-        public IActionResult Multiply(double a, double b)
+        public IActionResult Multiply(OperationsParameters parameters)
         {
+            double a = parameters.a;
+            double b = parameters.b;
             if (a == 0 || b == 0)
                 return NoContent();
 
@@ -59,8 +64,11 @@ namespace HoneywellPOC.Controllers
         }
 
         [HttpPost("divide")]
-        public IActionResult Divide(double a, int b)
+        public IActionResult Divide(OperationsParameters parameters)
         {
+            double a = parameters.a;
+            int b = Convert.ToInt32(parameters.b);
+
             if (a == 0)
                 return NoContent();
 
