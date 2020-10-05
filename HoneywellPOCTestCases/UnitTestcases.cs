@@ -17,20 +17,20 @@ namespace HoneywellPOCTestCases
         }
 
         [TestCase(1000, 2, 2, 100)]
-        public void calc_simple_interest_returns_1040(int p, int t, int r, int den)
+        public void calc_simple_interest_returns_1040(int principle, int time, int rate, int denominator)
         {
             //var maths = A.Fake<IMaths>();
 
 
             //int p = 1000, t = 2, r = 2, den = 100;
 
-            A.CallTo(() => _simpleInterest.CalculateInterest(p, t, r, den)).Returns(1040);
+            A.CallTo(() => _simpleInterest.CalculateInterest(principle, time, rate, denominator)).Returns(1040);
 
-            Assert.AreEqual(1040, _simpleInterest.CalculateInterest(p, t, r, den));
+            Assert.AreEqual(1040, _simpleInterest.CalculateInterest(principle, time, rate, denominator));
         }
 
         [TestCase(1000,2,2,0)]
-        public void calc_simple_interest_returns_zero(int p, int t, int r, int den)
+        public void calc_simple_interest_returns_zero(int principle, int time, int rate, int denominator)
         {
             //var maths = A.Fake<IMaths>();
             //var si = A.Fake<SimpleInterest>();
@@ -38,13 +38,13 @@ namespace HoneywellPOCTestCases
 
             //int p = 1000, t = 2, r = 2, den = 0;
 
-            A.CallTo(() => _simpleInterest.CalculateInterest(p, t, r, den)).Returns(0);
+            A.CallTo(() => _simpleInterest.CalculateInterest(principle, time, rate, denominator)).Returns(0);
 
-            Assert.AreEqual(0, _simpleInterest.CalculateInterest(p, t, r, den));
+            Assert.AreEqual(0, _simpleInterest.CalculateInterest(principle, time, rate, denominator));
         }
 
         [TestCase(1000,-2,2,0)]
-        public void calc_simple_interest_throws_error_on_invalid_values(int p, int t, int r, int den)
+        public void calc_simple_interest_throws_error_on_invalid_values(int principle, int time, int rate, int denominator)
         {
             //var maths = A.Fake<IMaths>();
             //var si = A.Fake<SimpleInterest>();
@@ -52,9 +52,9 @@ namespace HoneywellPOCTestCases
 
             //int p = 1000, t = -2, r = 2, den = 0;
 
-            A.CallTo(() => _simpleInterest.CalculateInterest(p, t, r, den)).Returns("error");
+            A.CallTo(() => _simpleInterest.CalculateInterest(principle, time, rate, denominator)).Returns("error");
 
-            Assert.AreEqual("error", _simpleInterest.CalculateInterest(p, t, r, den));
+            Assert.AreEqual("error", _simpleInterest.CalculateInterest(principle, time, rate, denominator));
         }
 
         [TestCase(10,20)]
@@ -86,11 +86,11 @@ namespace HoneywellPOCTestCases
             Assert.AreEqual(0, m.Multiply(a,b));
         }
 
-        [Test]
-        public void Calculate_Divide_10()
+        [TestCase(50,5)]
+        public void Calculate_Divide_10(double a, int b)
         {
-            double a = 50;
-            int b = 5;
+            //double a = 50;
+            //int b = 5;
             A.CallTo(() => m.Divide(a, b)).Returns(10);
             Assert.AreEqual(10, m.Divide(a, b));
         }
