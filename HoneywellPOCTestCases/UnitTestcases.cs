@@ -9,11 +9,18 @@ namespace HoneywellPOCTestCases
     {
         private SimpleInterest _simpleInterest;
         private Maths m;
+        private WeatherForecast _weatherforecast;
+        //public Weather(WeatherFor
+        //    _weatherforecast = weatherforecast;
+        //}ecast weatherforecast)
+        //{
+
         [SetUp]
         public void Setup()
         {
             _simpleInterest = A.Fake<SimpleInterest>();
             m = A.Fake<Maths>();
+            _weatherforecast = A.Fake<WeatherForecast>();
         }
 
         [TestCase(1000, 2, 2, 100)]
@@ -94,15 +101,21 @@ namespace HoneywellPOCTestCases
             A.CallTo(() => m.Divide(a, b)).Returns(10);
             Assert.AreEqual(10, m.Divide(a, b));
         }
-        [Test]
-        public void city_novalue_returns_error()
+        [TestCase("")]
+        public void city_novalue_returns_error(string city)
         {
+            A.CallTo(() => _weatherforecast.getTemperatureByCity(city)).Returns("error");
+           
+            Assert.AreEqual("error", _weatherforecast.getTemperatureByCity(city));
 
         }
 
-        [Test]
-        public void city_withValue_returns_dynamic_temperature()
+        [TestCase("Bangalore")]
+        public void city_withValue_returns_dynamic_temperature(string city)
         {
+            A.CallTo(() => _weatherforecast.getTemperatureByCity(city)).Returns(city);
+
+            Assert.AreEqual(city, _weatherforecast.getTemperatureByCity(city));
 
         }
         

@@ -7,6 +7,6 @@ namespace HoneywellPOC.Business
 {
     public interface IWeatherForecast
     {
-        public Response getTemperatureByCity(string city);
+        public dynamic getTemperatureByCity(string city);
     }
 }

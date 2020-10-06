@@ -5,8 +5,12 @@ namespace HoneywellPOC
 {
     public class WeatherForecast: IWeatherForecast
     {
-        public Response getTemperatureByCity(string city)
+        public virtual dynamic getTemperatureByCity(string city)
         {
+            if (string.IsNullOrEmpty(city))
+            {
+                return "error";
+            }
             var rng = new Random();
             return new Response
             {
