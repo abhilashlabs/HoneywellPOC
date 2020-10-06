@@ -1,8 +1,10 @@
 ﻿using System;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public partial class WeatherController : ControllerBase

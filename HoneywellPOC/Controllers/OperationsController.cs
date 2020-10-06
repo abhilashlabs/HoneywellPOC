@@ -1,9 +1,11 @@
 ﻿using System;
 using HoneywellPOC.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HoneywellPOC.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public partial class OperationsController : ControllerBase

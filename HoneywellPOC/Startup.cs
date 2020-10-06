@@ -20,10 +20,18 @@ namespace HoneywellPOC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAllOrigins",
+            //        builder => builder.AllowAnyOrigin());
+            //});
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
-                    builder => builder.AllowAnyOrigin());
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
             services.AddControllers();
             services.AddSingleton<Maths>();
@@ -68,6 +76,10 @@ namespace HoneywellPOC
             });
 
             app.UseRouting();
+
+            //app.UseCors();
+            // global policy - assign here or on each controller
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
