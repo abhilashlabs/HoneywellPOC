@@ -5,7 +5,7 @@ namespace HoneywellPOC
 {
     public class Response
     {
-        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy HH:mm}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy HH:mm}")]
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
