@@ -25,10 +25,20 @@ namespace HoneywellPOC
             //    options.AddPolicy("AllowAllOrigins",
             //        builder => builder.AllowAnyOrigin());
             //});
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //        .AllowCredentials());
+            //});
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                    builder => builder.SetIsOriginAllowed(_=>true)
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
